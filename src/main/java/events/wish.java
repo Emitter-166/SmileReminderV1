@@ -48,6 +48,7 @@ public class wish extends ListenerAdapter {
 
                 Timer timer2 = new Timer();
                 timer2.schedule(task2, 3600000);
+                break;
 
             case (".about"):
             case (".About"):
@@ -81,9 +82,22 @@ public class wish extends ListenerAdapter {
                 ctx.getChannel().sendMessage("Super secret document: History of humanity = <https://youtube.com/shorts/b9x-4JxSxjQ?feature=share>").queue();
                 break;
 
+            case (".drink"):
+            case (".Drink"):
+                TimerTask timerTask = new TimerTask() {
+                    @Override
+                    public void run() {
+                        EmbedBuilder builder = eventEmbeds.drinkTask(ctx);
+                        ctx.getMessage().replyEmbeds(builder.build()).queue();
+                    }
+                };
 
+                EmbedBuilder builder1 = eventEmbeds.drinkReminder(ctx);
+                ctx.getMessage().replyEmbeds(builder1.build()).queue();
 
+                Timer timerr = new Timer();
+                timerr.schedule(timerTask, 7200000);
         }
-
     }
+
 }

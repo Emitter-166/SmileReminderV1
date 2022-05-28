@@ -11,7 +11,7 @@ public class Main  {
         JDABuilder builder;
         builder = JDABuilder.createDefault("token");
         builder.addEventListeners(new wish());
-        builder.setActivity(Activity.streaming("Listening to .help", ""));
+        builder.setActivity(Activity.listening(".help"));
         builder.build();
     }
 }
